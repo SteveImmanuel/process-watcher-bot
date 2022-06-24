@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  attbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: steve_imm/wbot
+    container_name: wbot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - BOT_TOKEN=$BOT_TOKEN
+    command: python bot.py
